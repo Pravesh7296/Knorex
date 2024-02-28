@@ -10,10 +10,10 @@ public class Main {
 
 	        Vehicle car1 = new Vehicle("ABC123", TypeEnum.CAR, "Red");
 	        parkingLot.addVehicle(car1);
-	        
+//	        
 	        Vehicle car2 = new Vehicle("ABC124", TypeEnum.CAR, "Blue");
 	        parkingLot.addVehicle(car2);
-	        
+//	        
 	        Vehicle car3 = new Vehicle("ABC125", TypeEnum.CAR, "Green");
 	        parkingLot.addVehicle(car3);
 	        
@@ -22,15 +22,16 @@ public class Main {
 	        
 	        Vehicle car5 = new Vehicle("ABC127", TypeEnum.CAR, "pink");
 	        parkingLot.addVehicle(car5);
-	        
-	        
-//
-	        parkingLot.removeVehicle("ABC123");
-	        
+//	        
+//	        
+////
+	        parkingLot.removeVehicle("ABC124");
+//	        
 	        parkingLot.addVehicle(car4);
-	        
-	        System.out.println(parkingLot.checkAvailability(2, TypeEnum.BIKE));
-
+//	        
+	        System.out.println(parkingLot.checkAvailability(2, TypeEnum.CAR));
+              
+	        parkingLot.viewCost(2, TypeEnum.BIKE);
 
 	    }
 }

@@ -46,5 +46,9 @@ public class ParkingLott {
 	        return floors.get(floorNumber - 1).checkAvailability(type);
 	    }
 	    
+	    public void viewCost(int hour, TypeEnum type) {
+	    	System.out.println( CostStrategy.viewCost(hour, type));
+	    }
+	    
 	   
 }

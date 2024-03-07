@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ParkingLott {
-	  private int numFloors;
+	    private int numFloors;
 	    private int numSpacesPerType;
 	    private List<Floor> floors;
 
@@ -26,6 +26,7 @@ public class ParkingLott {
 	            if (floor.checkAvailability(vehicle.getVehicleType())) {
 //	            	System.out.println("space adding from main");
 	                VehicleSpace space = floor.addVehicle(vehicle);
+	            	
 	                System.out.println("Vehicle parked at Floor " + floor.getFloorNumber() + ", Space " + space.getSpaceNumber());
 	                return;
 	            }
@@ -35,15 +36,30 @@ public class ParkingLott {
 
 	    
 	    public void removeVehicle(String registrationNumber) {
-	        for (Floor floor : floors) {
-	            floor.removeVehicle(registrationNumber);
+	       boolean flag = true;
+	    	for (Floor floor : floors) {
+	            if(floor.removeVehicle(registrationNumber)) {
+	            	flag = false;
+	            	break;
+	            }
 	        }
+	    	if(flag) {
+		        System.out.println("Vehicle with registration number " + registrationNumber + " Not Found !");
+
+	    	}else {
 	        System.out.println("Vehicle with registration number " + registrationNumber + " removed from parking lot.");
-	    }
+	    	
+	    	}
+	    	
+	    	}
 
 	   
-	    public boolean checkAvailability(int floorNumber, TypeEnum type) {
-	        return floors.get(floorNumber - 1).checkAvailability(type);
+	    public void checkAvailability(int floorNumber, TypeEnum type) {
+	       if(floors.get(floorNumber - 1).checkAvailability(type)) {
+	    	   System.out.println("Space Available ");
+	       }else { 
+	    	   System.out.println("Sorry Space is Not Available "); 
+	       }
 	    }
 	    
 	    public void viewCost(int hour, TypeEnum type) {

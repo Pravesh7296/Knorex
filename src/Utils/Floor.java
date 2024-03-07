@@ -76,13 +76,22 @@ public class Floor {
           }
 
           
-          public void removeVehicle(String registrationNumber) {
-              for (VehicleSpace space : spaces) {
+          public boolean removeVehicle(String registrationNumber) {
+             boolean flag = true;
+        	  for (VehicleSpace space : spaces) {
             	  if (!space.isAvailable() && space.getVehicle().getRegNumber().equals(registrationNumber)) {
                       space.setAvailable(true);
-                      return;
+                       flag = false;
+                      break;
                   }
                   
               }
+        	  
+        	  if(flag) {
+        		  return false;
+        	  }else {
+        		  return true;
+        	  }
+              
           }
 }
